@@ -1,0 +1,2 @@
+# FlexGet cron
+*/5 * * * * /usr/bin/flexget -c /config/flexget/config.yml --cron execute > /dev/null 2>&1

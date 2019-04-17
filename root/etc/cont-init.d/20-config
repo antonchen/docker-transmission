@@ -1,0 +1,21 @@
+#!/usr/bin/with-contenv bash
+
+# make folders
+mkdir -p \
+    /config/{transmission,flexget} \
+    /downloads
+
+# copy config
+[[ ! -f /config/transmission/settings.json ]] && cp \
+    /defaults/settings.json /config/transmission/settings.json
+
+[[ ! -f /config/flexget/config.yml ]] && cp \
+    /defaults/config.yml /config/flexget/config.yml
+
+# permissions
+find /config/transmission /config/flexget -type d -exec chmod 755 {} \;
+find /config/transmission /config/flexget -type f -exec chmod 644 {} \;
+
+chown -R alpine:alpine \
+    /config \
+    /downloads \
