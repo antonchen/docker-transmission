@@ -42,5 +42,5 @@ RUN \
 COPY root/ /
 
 # ports and volumes
-EXPOSE 9091 51413 51413/udp
+EXPOSE 9093 51413 51413/udp
 VOLUME /config /downloads
